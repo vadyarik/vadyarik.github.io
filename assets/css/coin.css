@@ -1,0 +1,63 @@
+//  This pen built to use in a survey
+//  I built for Nucubuc on:
+//  http://nucubuc.yahiarefaiea.com/survey
+
+magenta= #c657a0
+magentaAlt= #863b6c
+svgSize= 88px
+wrapperSize= 420px + svgSize
+
+// wrapper
+#wrapper
+  position absolute
+  top: 50%
+  left: 0
+  right: 0
+  height: wrapperSize
+  margin-top: -(wrapperSize/2) - 14px
+
+// pops
+#pops
+  display: block
+  margin: 0 auto
+  opacity: .2
+
+// pops shape
+#popsShape
+  display: table
+  clear: both
+  margin: -75px auto 0
+  label
+    display: block
+    float: left
+    margin: 0 7px
+    cursor: pointer
+    input
+      overflow: hidden
+      position: absolute
+      margin: -1px
+      padding: 0
+      border: 0
+      width: 1px
+      height: 1px
+      opacity: 0
+      visibility: hidden
+      clip: rect(0 0 0 0)
+    svg
+      display: block
+      width: svgSize
+      height: svgSize
+      fill: transparent
+      stroke: rgba(0, 0, 0, .2)
+      stroke-width: 4
+      opacity: 0
+      animation: svgAnimation 1.5s ease .65s forwards
+      &:hover
+        fill: rgba(0, 0, 0, .1)
+      @keyframes svgAnimation
+        100%
+          opacity: 1
+    input:checked ~ svg
+      &, &:hover
+        fill: rgba(0, 0, 0, .2)
+        stroke: transparent

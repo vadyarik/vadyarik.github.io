@@ -1,0 +1,41 @@
+/* Dark Theme */
+/* ================= */
+.context-menu-theme-dark {
+	background:#3c3c3c;
+	border:1px solid #E0E0E0;
+	color:#E0E0E0;
+}
+.context-menu-theme-dark .context-menu-item {
+	text-align:left;
+	cursor:pointer;
+	color:#E0E0E0;
+	font-family:Helvetica,DejaVu Sans,Arial,sans-serif;
+	font-size:12px;
+	line-height:20px;
+	height:28px;
+	border:1px solid #161616;
+	border-left:0;
+	border-right:0;
+}
+.context-menu-theme-dark .context-menu-separator {
+	margin:0 0 0 32px;
+	font-size:0;
+	border-bottom:1px solid #161616;
+}
+.context-menu-theme-dark .context-menu-item-hover {
+	background-color:#6c6c6c;
+	border-color:#161616;
+}
+.context-menu-theme-dark .context-menu-item .context-menu-item-inner {
+	padding:4px 16px 4px 35px;
+	margin-left:0;
+	background-color:transparent;
+	background-repeat:no-repeat;
+	background-position:3px center;
+	background-image:none;
+}
+.context-menu-theme-dark .context-menu-item-hover .context-menu-item-inner {
+}
+.context-menu-theme-dark .context-menu-item-disabled {
+	color:#666;
+}

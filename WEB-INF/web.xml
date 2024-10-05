@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>tg_bot</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+<!--
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+-->
+  </welcome-file-list>
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>dispatcher</web-resource-name>
+      <url-pattern>*.jsp</url-pattern>
+      <url-pattern>*.do</url-pattern>
+      <url-pattern>*.xml</url-pattern>
+      <url-pattern>/upload</url-pattern>
+    </web-resource-collection>
+    <!--auth-constraint>
+      <role-name>System Admin</role-name>
+      <role-name>Super Admin</role-name>
+      <role-name>Admin</role-name>
+      <role-name>Biller</role-name>
+      <role-name>Patient</role-name>
+      <role-name>Radiologist</role-name>
+	    <role-name>Receptionist</role-name>
+      <role-name>Referring Physician</role-name>
+      <role-name>Technologist</role-name>
+      <role-name>Typist</role-name>
+      <role-name>Nurse</role-name>
+      <role-name>Marketer</role-name>
+      <role-name>Attorney</role-name>
+    </auth-constraint-->
+    <user-data-constraint>
+      <description>Constrain the user data transport for the whole application</description>
+     <!-- <transport-guarantee>NONE</transport-guarantee> -->
+     <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+    </user-data-constraint>
+  </security-constraint>
+  <!--login-config>
+    <auth-method>FORM</auth-method>
+    <realm-name>VoXcellApp</realm-name>
+    <form-login-config>
+      <form-login-page>/login.jsp</form-login-page>
+      <form-error-page>/invalidlogin.jsp</form-error-page>
+    </form-login-config>
+  </login-config-->
+  <!--security-role>
+    <role-name>Super Admin</role-name>
+  </security-role>
+  <security-role>
+    <role-name>System Admin</role-name>
+  </security-role>
+  <security-role>
+    <role-name>Admin</role-name>
+  </security-role>
+  <security-role>
+    <role-name>Biller</role-name>
+  </security-role>
+  <security-role>
+    <role-name>Patient</role-name>
+  </security-role>
+  <security-role>
+    <role-name>Typist</role-name>
+  </security-role>
+  <security-role>
+    <role-name>Radiologist</role-name>
+  </security-role>
+  <security-role>
+    <role-name>Receptionist</role-name>
+  </security-role>
+  <security-role>
+    <role-name>Referring Physician</role-name>
+  </security-role>
+  <security-role>
+    <role-name>Technologist</role-name>
+  </security-role>
+  <security-role>
+    <role-name>Nurse</role-name>
+  </security-role>
+  <security-role>
+    <role-name>Marketer</role-name>
+  </security-role>
+  <security-role>
+    <role-name>Attorney</role-name>
+  </security-role-->
+  <servlet>
+    <description></description>
+    <display-name>tg.act</display-name>
+    <servlet-name>tg.act</servlet-name>
+    <servlet-class>com.vadyarik.tg.tg_bot.Main</servlet-class>
+	<load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>tg.act</servlet-name>
+    <url-pattern>/tg.act</url-pattern>
+  </servlet-mapping>
+</web-app>

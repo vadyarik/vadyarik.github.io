@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-web>
+   <!-- Uncomment the security-domain to enable security. You will
+      need to edit the htmladaptor login configuration to setup the
+      login modules used to authentication users.
+   -->
+    <security-domain>VoXcellApp</security-domain>
+    <context-root>/tg_bot</context-root>
+    <replication-config>
+        <replication-trigger>SET_AND_NON_PRIMITIVE_GET</replication-trigger>
+        <replication-granularity>SESSION</replication-granularity>
+    </replication-config>
+</jboss-web>
