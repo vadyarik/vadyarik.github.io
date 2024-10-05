@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NotCoin</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/coin.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
     <meta name="theme-color" content="#f19e36" />
-     <script language='javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+    <script language='javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
     <script language='javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
-
 
     <link rel="icon" type="image/x-icon" href="./assets/favicon/favicon.ico">
 
@@ -56,25 +54,40 @@
         </div>
     </div>
     
-    <div class="coin-container">
+    <div class="coin-container" style="height=100px;">
         <!-- <span>+1</span> -->
-        <img src="./assets/images/golden.png" id="coin" class="select-none" width="3px" style="display:none;"/>
-        <div id="wrapper">
-  <canvas id="pops" width="440" height="260" style="display: block;"></canvas>
-  <div id="popsShape">
-    <label>
-      <input type="radio" name="popsShape" value="nucubuc" checked="checked">
-      <svg>
-        <path d="M44,2C20.8,2,2,20.8,2,44s18.8,42,42,42c23.2,0,42-18.8,42-42C86,20.8,67.2,2,44,2z M61.8,58.8c0,2.5-2,4.5-4.5,4.5s-4.5-2-4.5-4.5V44.4c0-5-4.1-9.1-9.1-9.1c-5,0-9.1,4.1-9.1,9.1v14.4c0,2.5-2,4.5-4.5,4.5s-4.5-2-4.5-4.5V44.4c0-10,8.1-18.2,18.2-18.2s18.2,8.1,18.2,18.2V58.8z"></path>
-      </svg>
-    </label>
-    <label>
-      <input type="radio" name="popsShape" value="love">
-      <svg>
-        <path d="M44,2C20.8,2,2,20.8,2,44s18.8,42,42,42c23.2,0,42-18.8,42-42C86,20.8,67.2,2,44,2z M61,47.5l-17,17l-17-17c-4.7-4.7-4.7-12.3,0-17c4.7-4.7,12.3-4.7,17,0c4.7-4.7,12.3-4.7,17,0C65.7,35.2,65.7,42.8,61,47.5z"></path>
-      </svg>
-    </label>
-  </div>
+        <img src="./assets/images/golden.png" id="coin" class="select-none" width="3px" />
+        <div class="scene">
+	<div class="sky">
+		<!--h1 class="ui">Drag the roof up!</h1>
+		<p class="ui">press space to hide UI</p-->
+		<div class="flare flare1"></div>
+		<div class="flare flare2"></div>
+		<div class="flare flare3"></div>
+	</div>
+	<div class="side-l ui">
+		<div class="price">$</div>
+	</div>
+	
+	<div class="building-wrap">
+		<div class="building">
+			<div class="floor">
+				<div class="window"></div>
+				<div class="window open"></div>
+				<div class="window"></div>
+				<div class="window"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="side-r">
+		<div class="bush bush1"></div>
+		<div class="tree tree1"></div>
+		<div class="tree tree2"></div>
+	</div>
+	<div class="street">
+		<div class="car"></div>
+	</div>
 </div>
     </div>
 
@@ -109,6 +122,5 @@
 
 
     <script src="./assets/js/main.js"></script>
-    <script src="./assets/js/coin.js"></script>
 </body>
-</html>
+	</html>
