@@ -1,5 +1,5 @@
 const body = document.body;
-const image = body.querySelector('#coin');
+const image = body.querySelector('#pops');
 const h1 = body.querySelector('h1');
 
 let coins = localStorage.getItem('coins');
@@ -53,7 +53,7 @@ image.addEventListener('click' , (e)=> {
         body.querySelector('#power').textContent = `${Number(power) - 1}`;
     } 
 
-    if(x < 150 & y < 150){
+   /* if(x < 150 & y < 150){
         image.style.transform = 'translate(-0.25rem, -0.25rem) skewY(-10deg) skewX(5deg)';
     }
     else if (x < 150 & y > 150){
@@ -70,7 +70,7 @@ image.addEventListener('click' , (e)=> {
     setTimeout(()=>{
         image.style.transform = 'translate(0px, 0px)';
     }, 100);
-
+*/
     body.querySelector('.progress').style.width = `${(100 * power) / total}%`;
 });
 

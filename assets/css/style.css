@@ -112,11 +112,11 @@ body {
 }
 .coin-count-container img {
     margin-right: 1rem;
-    width: 50px;
+    width: 25px;
 }
 .coin-count-container h1 {
     color: #ffffff;
-    font-size: 3.5rem;
+    font-size: 1.5rem;
 }
 .coin-container {
     position: relative;
