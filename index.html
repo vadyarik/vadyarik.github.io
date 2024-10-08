@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="./assets/css/coin.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
     <meta name="theme-color" content="#f19e36" />
-     <script language='javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script language='javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
     <script language='javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
 
 
@@ -17,7 +18,10 @@
 </head>
 <body>
 
-    
+<script>
+var $=jQuery.noConflict();
+</script>
+
     <div class="squad-container" style="display:none;">
         <div class="login">
             <div class="login-detail" >
@@ -112,7 +116,18 @@
     <script src="./assets/js/coin.js"></script>
 <script>
 $( document ).ready(function() {
-    window.Telegram.WebApp.expand();
+ (function () {
+      const tele = window.Telegram.WebApp;
+      tele.ready()
+      webAppVersion = '7.7';
+      tele.expand();
+      tele.BackButton.show();
+      tele.SettingsButton.show();
+      tele.setHeaderColor("#fcf6e2")
+      tele.setBackgroundColor("#fcf6e2")
+      tele.enableClosingConfirmation()
+      tele.disableVerticalSwipes()
+    })()
 });
 
 </script>
