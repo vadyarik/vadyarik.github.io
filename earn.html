@@ -9,8 +9,12 @@
     <meta name="theme-color" content="#f19e36" />
 
     <link rel="icon" type="image/x-icon" href="./assets/favicon/favicon.ico">
+
+    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
+
 </head>
 <body class="earn">
+
 
     <div class="haeder">
         <a href="./">
@@ -26,11 +30,36 @@
         <img src="./assets/images/golden.png" width="80px">
         <h3>Earn more coins</h3>
     </div>
+    
+    <div id="ton-connect"></div>
 
     <div class="invite-bonus-box">
         
     </div>
     
     <script src="./assets/js/charge.js"></script>
+
+<script>
+    const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+        manifestUrl: 'https://vadyarik.github.io/tonconnect-manifest.json',
+        buttonRootId: 'ton-connect'
+    });
+     async function connectToWallet() {
+        const connectedWallet = await tonConnectUI.connectWallet();
+        // Do something with connectedWallet if needed
+        console.log(connectedWallet);
+    }
+
+    // Call the function
+    connectToWallet().catch(error => {
+        console.error("Error connecting to wallet:", error);
+    });
+
+    tonConnectUI.uiOptions = {
+      twaReturnUrl: 'https://t.me/vadyarikbot'
+  };
+
+</script>
+
 </body>
 </html>
