@@ -6,118 +6,66 @@
   <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
 </head>
 <body>
-<style>
-.page--bg_arena__background {
-    background: url('./assets/images/game/background-1.png');
-    background-position:center;
-    background-repeat:no-repeat;
-    background-size:cover;
-}
-</style>
-  <ons-navigator swipeable id="myNavigator" page="loading.html"></ons-navigator>
 
-  <ons-tabbar swipeable position="bottom">
-        <ons-tab page="mining.html" label="Main" icon="ion-ios-home, material:md-home" active>
-        </ons-tab>
-        <ons-tab page="cards.html" label="Cards" icon="md-settings, material:md-graduation-cap">
-        </ons-tab>
-        <ons-tab page="arena.html" label="Arena" icon="ion-ios-home, material:md-shield-security" >
-        </ons-tab>
-        <ons-tab page="frens.html" label="Frens" icon="ion-ios-home, material:md-accounts-add">
-        </ons-tab>
-        <ons-tab page="earn.html" label="Earn" icon="ion-ios-home, material:md-money" badge="7" >
-        </ons-tab>
-      </ons-tabbar>
+  <ons-navigator id="myNavigator" page="loading.html"></ons-navigator>
+
 
   <template id="mining.html">
-    <ons-page id="mining">
+    <ons-page id="mining" modifier="bg_background_2">
       <p style="text-align: center; margin: 70% 0;">
         <p style="text-align: center;">Mining</p>
       </p>
     </ons-page>
   </template>
+
   <template id="cards.html">
     <ons-page id="cards">
       <ons-list>
-    <ons-list-header>Default</ons-list-header>
-    <ons-list-item>Item A</ons-list-item>
-    <ons-list-item>Item B</ons-list-item>
+        <ons-list-header>Thumbnails and titles</ons-list-header>
+        <ons-list-item>
+          <div class="left">
+            <img class="list-item__thumbnail" src="./assets/images/game/icon1.png">
+          </div>
+          <div class="center">
+            <span class="list-item__title">Bear power</span><span class="list-item__subtitle">Attack</span>
+          </div>
+        </ons-list-item>
+        <ons-list-item>
+          <div class="left">
+            <img class="list-item__thumbnail" src="./assets/images/game/icon1.png">
+          </div>
+          <div class="center">
+            <span class="list-item__title">Bear armor</span><span class="list-item__subtitle">defense</span>
+          </div>
+        </ons-list-item>
+    
+    
+      <br />
+    
+      <ons-list modifier="inset">
+        <ons-list-header>Inset list</ons-list-header>
+        <ons-list-item>
+          <div class="left">
+            <img class="list-item__thumbnail" src="./assets/images/game/icon1.png">
+          </div>
+          <div class="center">
+        <span class="list-item__title">Bear power</span><span class="list-item__subtitle">Attack</span>
+          </div>
+        </ons-list-item>
+        <ons-list-item>
+          <div class="left">
+            <img class="list-item__thumbnail" src="./assets/images/game/icon1.png">
+          </div>
+          <div class="center">
+            <span class="list-item__title">Bear armor</span><span class="list-item__subtitle">defense</span>
+          </div>
+        </ons-list-item>
+      </ons-list>
 
-    <ons-list-header>Expandable</ons-list-header>
-    <ons-list-item expandable>
-      Tap to expand
-      <div class="expandable-content">Expandable content</div>
-    </ons-list-item>
-
-    <ons-list-header>Tappable / Ripple</ons-list-header>
-    <ons-list-item tappable>Tap me</ons-list-item>
-
-    <ons-list-header>Chevron</ons-list-header>
-    <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>
-
-    <ons-list-header>Thumbnails and titles</ons-list-header>
-    <ons-list-item>
-      <div class="left">
-        <img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
-      </div>
-      <div class="center">
-        <span class="list-item__title">Cutest kitty</span><span class="list-item__subtitle">On the Internet</span>
-      </div>
-    </ons-list-item>
-
-    <ons-list-header>Icons</ons-list-header>
-    <ons-list-item>
-      <div class="left">
-        <ons-icon icon="md-face" class="list-item__icon"></ons-icon>
-      </div>
-      <div class="center">
-        Icon
-      </div>
-    </ons-list-item>
-
-    <ons-list-header>Switch</ons-list-header>
-    <ons-list-item>
-      <div class="center">
-        Turn it on
-      </div>
-      <div class="right">
-        <ons-switch></ons-switch>
-      </div>
-    </ons-list-item>
-
-    <ons-list-header>Switch and icon</ons-list-header>
-    <ons-list-item>
-      <div class="left">
-        <ons-icon icon="md-face" class="list-item__icon"></ons-icon>
-      </div>
-      <div class="center">
-        Icon and switch
-      </div>
-      <div class="right">
-        <ons-switch></ons-switch>
-      </div>
-    </ons-list-item>
-
-    <ons-list-header>No divider</ons-list-header>
-    <ons-list-item modifier="nodivider">Item A</ons-list-item>
-    <ons-list-item modifier="nodivider">Item B</ons-list-item>
-
-    <ons-list-header>Long divider</ons-list-header>
-    <ons-list-item modifier="longdivider">Item A</ons-list-item>
-    <ons-list-item modifier="longdivider">Item B</ons-list-item>
-  </ons-list>
-
-  <br />
-
-  <ons-list modifier="inset">
-    <ons-list-header>Inset list</ons-list-header>
-    <ons-list-item modifier="longdivider">Item A</ons-list-item>
-    <ons-list-item modifier="longdivider">Item B</ons-list-item>
-  </ons-list>
-
-  <br />
+    <br />
     </ons-page>
   </template>
+
   <template id="arena.html">
     <ons-page id="arena" modifier="bg_arena">
       <p style="text-align: center; margin: 70% 0;">
@@ -141,45 +89,74 @@
   </template>
 
   <template id="loading.html">
-    <ons-page id="loading">
-
+    <ons-page id="loading" modifier="bg_loading">
       <p style="text-align: center; margin: 70% 0;">
         <p style="text-align: center;">Loading legion 
         </br>
         </br>
         </br>
         <ons-progress-circular indeterminate></ons-progress-circular></p>
-        
       </p>
     </ons-page>
   </template>
 
-  <template id="mining.html">
-    <ons-page id="mining">
-      <ons-toolbar>
-        <div class="center"></div>
-      </ons-toolbar>
-
-      <p>This is the second page.</p>
-
+  <template id="main.html">
+    <ons-page id="main">
+  <ons-tabbar id="myTabbar" swipeable position="bottom">
+    <ons-tab page="mining.html" label="Main" icon="ion-ios-home, material:md-home">
+    </ons-tab>
+    <ons-tab page="cards.html" label="Cards" icon="md-graduation-cap, material:md-graduation-cap">
+    </ons-tab>
+    <ons-tab page="arena.html" label="Arena" icon="md-shield-security, material:md-shield-security" >
+    </ons-tab>
+    <ons-tab page="frens.html" label="Frens" icon="md-accounts-add, material:md-accounts-add">
+    </ons-tab>
+    <ons-tab page="earn.html" label="Earn" icon="md-money, material:md-money" badge="7" >
+    </ons-tab>
+  </ons-tabbar>
+      <p>This is the main page.</p>
     </ons-page>
   </template>
+
+
+<style>
+  .page--bg_arena__background {
+    background: url('./assets/images/game/background-1.png');
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+  }
+  .page--bg_loading__background {
+    background: url('./assets/images/game/bacground-loading.jpg');
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+  }
+  .page--bg_background_2__background {
+    background: url('./assets/images/game/background-2.jpg');
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+  }
+</style>
+
+
 <script type="text/javascript">
   document.addEventListener('init', function(event) {
     var page = event.target;
+    console.log("ddd");
+//    document.querySelector('#myNavigator').pushPage('loading.html');
 
     if (page.id === 'loading') {
       setTimeout(function(){
-        document.querySelector('#myNavigator').pushPage('mining.html', {data: {title: 'Mining'}});
-      }, 2000);
-    } else if (page.id === 'mining') {
+        document.querySelector('#myNavigator').pushPage('main.html');
+        //document.querySelector('#myTabbar').hideTabs = false;
+      }, 3000);
+    } else if (page.id === 'main') {
       //page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
     }
   });
-  document.addEventListener('prechange', function(event) {
-      document.querySelector('ons-toolbar .center')
-    .innerHTML = event.tabItem.getAttribute('label');
-});
+
 </script>
 
 </body>
