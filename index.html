@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
-  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
-  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <link rel="stylesheet" href="./assets/css/onsenui.css">
+  <link rel="stylesheet" href="./assets/css/onsen-css-components.min.css">
+  <script src="./assets/js/onsenui.min.js"></script>
 </head>
 <body>
+<!-- 
+.color1 {color: #f2bf83;}
+.color2 {color: #f5d591;}
+.color3 {color: #143785;}
+.color4 {color: #1a7ab0;}
+.color5 {color: #63cde2;}
+-->
+
 
   <ons-navigator id="myNavigator" page="loading.html"></ons-navigator>
 
 
   <template id="mining.html">
-    <ons-page id="mining" modifier="bg_background_2">
+    <ons-page id="mining" modifier="bg_background_arena_1" style="position:relative;">
+      <div class="bottom" style="position: absolute; width: 200px; height: 334px; margin-left: auto; margin-right: auto; bottom: 150px; left: calc((100% - 200px)/2);">
+        <img src="./assets/images/game/figure-1.png" style="width: 100%">
+      </div>
       <p style="text-align: center; margin: 70% 0;">
         <p style="text-align: center;">Mining</p>
       </p>
@@ -20,30 +31,9 @@
 
   <template id="cards.html">
     <ons-page id="cards">
-      <ons-list>
-        <ons-list-header>Thumbnails and titles</ons-list-header>
-        <ons-list-item>
-          <div class="left">
-            <img class="list-item__thumbnail" src="./assets/images/game/icon1.png">
-          </div>
-          <div class="center">
-            <span class="list-item__title">Bear power</span><span class="list-item__subtitle">Attack</span>
-          </div>
-        </ons-list-item>
-        <ons-list-item>
-          <div class="left">
-            <img class="list-item__thumbnail" src="./assets/images/game/icon1.png">
-          </div>
-          <div class="center">
-            <span class="list-item__title">Bear armor</span><span class="list-item__subtitle">defense</span>
-          </div>
-        </ons-list-item>
-    
-    
-      <br />
-    
+
       <ons-list modifier="inset">
-        <ons-list-header>Inset list</ons-list-header>
+        <ons-list-header>Warrior stats</ons-list-header>
         <ons-list-item>
           <div class="left">
             <img class="list-item__thumbnail" src="./assets/images/game/icon1.png">
@@ -58,6 +48,70 @@
           </div>
           <div class="center">
             <span class="list-item__title">Bear armor</span><span class="list-item__subtitle">defense</span>
+          </div>
+        </ons-list-item>
+      </ons-list>
+
+      <br />
+
+      <ons-list modifier="inset">
+        <ons-list-header>Close combat</ons-list-header>
+        <ons-list-item>
+          <div class="left">
+            <img class="list-item__thumbnail" src="./assets/images/game/icon1.png">
+          </div>
+          <div class="center">
+        <span class="list-item__title">Bear power</span><span class="list-item__subtitle">Attack</span>
+          </div>
+        </ons-list-item>
+        <ons-list-item>
+          <div class="left">
+            <img class="list-item__thumbnail" src="./assets/images/game/icon1.png">
+          </div>
+          <div class="center">
+            <span class="list-item__title">Bear armor</span><span class="list-item__subtitle">defense</span>
+          </div>
+        </ons-list-item>
+      </ons-list>
+
+      <br />
+
+      <ons-list modifier="inset">
+        <ons-list-header>Armor</ons-list-header>
+        <ons-list-item>
+          <div class="left">
+            <img class="list-item__thumbnail" src="./assets/images/game/icon1.png">
+          </div>
+          <div class="center">
+        <span class="list-item__title">Bear power</span><span class="list-item__subtitle">Attack</span>
+          </div>
+        </ons-list-item>
+      </ons-list>
+
+      <br />
+
+      <ons-list modifier="inset">
+        <ons-list-header>Weapon</ons-list-header>
+        <ons-list-item>
+          <div class="left">
+            <img class="list-item__thumbnail" src="./assets/images/game/icon1.png">
+          </div>
+          <div class="center">
+        <span class="list-item__title">Bear power</span><span class="list-item__subtitle">Attack</span>
+          </div>
+        </ons-list-item>
+      </ons-list>
+
+      <br />
+
+      <ons-list modifier="inset">
+        <ons-list-header>Daily life</ons-list-header>
+        <ons-list-item>
+          <div class="left">
+            <img class="list-item__thumbnail" src="./assets/images/game/icon1.png">
+          </div>
+          <div class="center">
+        <span class="list-item__title">Bear power</span><span class="list-item__subtitle">Attack</span>
           </div>
         </ons-list-item>
       </ons-list>
@@ -138,6 +192,12 @@
     background-repeat:no-repeat;
     background-size:cover;
   }
+  .page--bg_background_arena_1__background {
+    background: url('./assets/images/game/background-arena-1.png');
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+  }
 </style>
 
 
@@ -151,7 +211,7 @@
       setTimeout(function(){
         document.querySelector('#myNavigator').pushPage('main.html');
         //document.querySelector('#myTabbar').hideTabs = false;
-      }, 3000);
+      }, 100);
     } else if (page.id === 'main') {
       //page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
     }
