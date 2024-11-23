@@ -12,11 +12,11 @@
 </head>
 <body>
 <!-- 
-.color1 {color: #f2bf83;}
-.color2 {color: #f5d591;}
-.color3 {color: #143785;}
-.color4 {color: #1a7ab0;}
-.color5 {color: #63cde2;}
+.color1 {color: #60324b;}
+.color2 {color: #873e57;}
+.color3 {color: #bd5966;}
+.color4 {color: #fe8c80;}
+.color5 {color: #ffd09e;}
 -->
 
 
@@ -25,12 +25,40 @@
 
   <template id="mining.html">
     <ons-page id="mining" modifier="bg_background_arena_1" style="position:relative;">
-      <div class="bottom" style="position: absolute; width: 200px; height: 334px; margin-left: auto; margin-right: auto; bottom: 150px; left: calc((100% - 200px)/2);">
+
+      <!--ons-row>
+        <ons-col width="150px"><ons-icon icon="fa-twitter"></ons-icon></ons-col>
+        <ons-col>Text Text Text</ons-col>
+        <ons-col>Text Text Text</ons-col>
+      </ons-row-->
+
+      </br>
+
+      <ons-list modifier="inset">
+        <ons-list-item>
+          <div class="left">
+            <img class="list-item__thumbnail" src="./assets/images/game/profile_icon.png">
+          </div>
+          <div class="center">
+            <span class="list-item__title">Cutest kitty</span><span class="list-item__subtitle">Level 4</span>
+          </div>
+        </ons-list-item>
+      </ons-list>
+
+      </br>
+
+      <ons-row>
+        <ons-col width="50px"></ons-col>
+        <ons-col width="50px"><img class="list-item__thumbnail list-item--material__thumbnail" src="./assets/images/game/coin.png"></ons-col>
+        <ons-col width="50%"><ons-progress-bar modifier="material huge-progress-bar" value="10" secondary-value="50"><ons-progress-bar></ons-col>
+        <ons-col width="50px">###</ons-col>
+      </ons-row>
+
+      </br>
+
+      <div class="bottom" style="position: absolute; width: 200px; height: 334px; margin-left: auto; margin-right: auto; bottom: 100px; left: calc((100% - 200px)/2);">
         <img src="./assets/images/game/figure-1.png" style="width: 100%">
       </div>
-      <p style="text-align: center; margin: 70% 0;">
-        <p style="text-align: center;">Mining</p>
-      </p>
     </ons-page>
   </template>
 
@@ -203,13 +231,26 @@
     background-repeat:no-repeat;
     background-size:cover;
   }
+  .profile-icon {
+    border: 1px solid #873e57;
+    border-radius: 3px;
+    width: 80px;
+    height: 80px;
+  }
+  .progress-bar--huge-progress-bar {
+  	height: 16px;
+  	border: 1px solid #873e57;
+  	border-radius: 8px;
+  }
+  .progress-bar--huge-progress-bar__primary {
+  	
+  }
 </style>
 
 
 <script type="text/javascript">
   document.addEventListener('init', function(event) {
     var page = event.target;
-    console.log("ddd");
 //    document.querySelector('#myNavigator').pushPage('loading.html');
 
     if (page.id === 'loading') {
