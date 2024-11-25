@@ -360,7 +360,7 @@
       var warriorCardGroups = cardPages.pages['Warrior'].groups;
 
     warriorCardGroups.forEach(group => {
-      var groupElement = ons.createElement(`<ons-list modifier="inset ${group.color}">
+      var groupElement = ons.createElement(`<ons-list modifier="inset blue">
         <ons-list-header>${group.name}</ons-list-header>
         </ons-list>`);
         var cards=group.cards.forEach(card => {
@@ -372,14 +372,14 @@
               <span class="list-item__title"><b>Lv ${card.level}.</b> ${card.name}</span><span class="list-item__subtitle">${card.speed_step} Lb/h</span>
             </div>
             <div class="right">
-              <div class="list-item__label">${card.price} Lb</div>
+              <div class="list-item__label">${card.price} <img class="list-item__thumbnail coin-icon" src="./assets/images/game/coin.png"></div>
             </div>
           </ons-list-item>`);
           groupElement.appendChild(cardElement);
         });
 
         warriorPage.appendChild(document.createElement("br"));
-        //warriorPage.appendChild(groupElement);
+        warriorPage.appendChild(groupElement);
     });
     //ons.compile(warriorPage);
   
