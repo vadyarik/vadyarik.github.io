@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="./assets/onsenui/css/font_awesome/css/all.min.css">
   <link rel="stylesheet" href="./assets/onsenui/css/font_awesome/css/v4-shims.min.css">
   <script src="./assets/onsenui/js/onsenui.min.js"></script>
+
+  <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
 </head>
 <body>
 <!-- 
@@ -50,8 +52,8 @@
       <ons-row>
         <ons-col width="50px"></ons-col>
         <ons-col width="50px"><img class="list-item__thumbnail list-item--material__thumbnail" src="./assets/images/game/coin.png"></ons-col>
-        <ons-col width="50%"><ons-progress-bar modifier="material huge-progress-bar" value="10" secondary-value="50"><ons-progress-bar></ons-col>
-        <ons-col width="50px">###</ons-col>
+        <ons-col width="50%"><ons-progress-bar modifier="material huge-progress-bar" value="10"><ons-progress-bar></ons-col>
+        <ons-col width="50px"></ons-col>
       </ons-row>
 
       </br>
@@ -65,14 +67,17 @@
   <template id="cards.html">
     <ons-page id="cards">
 
-      <ons-list modifier="inset">
+      <ons-list modifier="inset blue">
         <ons-list-header>Warrior stats</ons-list-header>
         <ons-list-item>
           <div class="left">
             <img class="list-item__thumbnail" src="./assets/images/game/icon1.png">
           </div>
           <div class="center">
-        <span class="list-item__title">Bear power</span><span class="list-item__subtitle">Attack</span>
+            <span class="list-item__title"><b>Lv 5.</b> Bear power</span><span class="list-item__subtitle">400 Lb/h</span>
+          </div>
+          <div class="right">
+            <div class="list-item__label">5000 Lb</div>
           </div>
         </ons-list-item>
         <ons-list-item>
@@ -80,14 +85,17 @@
             <img class="list-item__thumbnail" src="./assets/images/game/icon1.png">
           </div>
           <div class="center">
-            <span class="list-item__title">Bear armor</span><span class="list-item__subtitle">defense</span>
+            <span class="list-item__title"><b>Lv 3.</b> Bear armor</span><span class="list-item__subtitle">300 Lb/h</span>
+          </div>
+          <div class="right">
+            <div class="list-item__label">2500 <img class="list-item__thumbnail coin-icon" src="./assets/images/game/coin.png"></div>
           </div>
         </ons-list-item>
       </ons-list>
 
       <br />
 
-      <ons-list modifier="inset">
+      <ons-list modifier="inset yellow">
         <ons-list-header>Close combat</ons-list-header>
         <ons-list-item>
           <div class="left">
@@ -163,7 +171,8 @@
   <template id="frens.html">
     <ons-page id="frens">
       <p style="text-align: center; margin: 70% 0;">
-        <p style="text-align: center;">frens</p>
+        <p style="text-align: center;">Invite friends</p>
+        <p style="text-align: center;">You and your friend will receive bonuses</p>
       </p>
     </ons-page>
   </template>
@@ -192,9 +201,9 @@
   <ons-tabbar id="myTabbar" swipeable position="bottom">
     <ons-tab page="mining.html" label="Main" icon="ion-ios-home, material:md-home">
     </ons-tab>
-    <ons-tab page="cards.html" label="Cards" icon="md-graduation-cap, material:md-graduation-cap">
+    <ons-tab page="cards.html" label="Cards" icon="md-graduation-cap, material:md-graduation-cap"  badge="soon">
     </ons-tab>
-    <ons-tab page="arena.html" label="Arena" icon="md-shield-security, material:md-shield-security" >
+    <ons-tab page="arena.html" label="Arena" icon="md-shield-security, material:md-shield-security" badge="soon" >
     </ons-tab>
     <ons-tab page="frens.html" label="Frens" icon="md-accounts-add, material:md-accounts-add">
     </ons-tab>
@@ -241,14 +250,46 @@
   	height: 16px;
   	border: 1px solid #873e57;
   	border-radius: 8px;
+  	margin-top: 8px;
   }
   .progress-bar--huge-progress-bar__primary {
   	
   }
+  .list--yellow {
+  	background-color: #dbaa50;
+  }
+  .list--blue {
+  	background-color: #508ddb;
+  }
+  .list--yellow > .list-item {
+  	color: #60324b;
+  }
+  .coin-icon {
+    width: 15px;
+    height: 15px;
+  }
+  .list-item__label {
+    opacity: 1 !important;
+  }
+
 </style>
 
 
 <script type="text/javascript">
+//  window.Telegram.WebApp.ready()
+//  window.Telegram.WebApp.expand();
+  (function () {
+      const tele = window.Telegram.WebApp;
+      tele.ready()
+      tele.expand();
+      tele.BackButton.show();
+      tele.SettingsButton.show();
+      tele.setHeaderColor("#fcf6e2")
+      tele.setBackgroundColor("#fcf6e2")
+      tele.enableClosingConfirmation()
+      tele.disableVerticalSwipes()
+    })();
+
   document.addEventListener('init', function(event) {
     var page = event.target;
 //    document.querySelector('#myNavigator').pushPage('loading.html');
