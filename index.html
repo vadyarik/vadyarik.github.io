@@ -64,10 +64,9 @@
     </ons-page>
   </template>
 
-  <template id="cards.html">
-    <ons-page id="cards">
-
-      <ons-list modifier="inset blue">
+  <template id="cards_warrior.html">
+    <ons-page id="cards_warrior" modifier="bg_cards_warrior" id="cards_warrior_page" active>
+<!--ons-list modifier="inset blue">
         <ons-list-header>Warrior stats</ons-list-header>
         <ons-list-item>
           <div class="left">
@@ -155,11 +154,62 @@
         <span class="list-item__title">Bear power</span><span class="list-item__subtitle">Attack</span>
           </div>
         </ons-list-item>
-      </ons-list>
+      </ons-list-->
+
+    </ons-page>
+  </template>
+  <template id="cards_weapon.html">
+    <ons-page id="cards_weapon" modifier="bg_cards_weapon" id="cards_weapon_page">
+                 asdasdas
+    </ons-page>
+  </template>
+    <template id="cards_strategy.html">
+    <ons-page id="cards_strategy" modifier="bg_cards_strategy" id="cards_strategy_page">
+                    2222
+    </ons-page>
+  </template>
+    <template id="cards_squad.html">
+    <ons-page id="cards_squad" modifier="bg_cards_squad" id="cards_squad_page">
+                   4444
+    </ons-page>    
+  </template>
+
+
+  <template id="cards.html">
+    <ons-page id="cards">
+      </br>
+           <ons-toolbar>
+    <div class="center">
+       <ons-segment id="segment" tabbar-id="tabbar" style="width: 180px">
+        <button>Page 1</button>
+        <button>Page 2</button>
+        <button>Page 3</button>
+        <button>Page 4</button>
+      </ons-segment>
+         </div>
+  </ons-toolbar>
+
+        <ons-tabbar id="tabbar">
+    <ons-tab page="cards_warrior.html" active></ons-tab>
+    <ons-tab page="cards_weapon.html"></ons-tab>
+    <ons-tab page="cards_strategy.html"></ons-tab>
+    <ons-tab page="cards_squad.html"></ons-tab>
+  </ons-tabbar>
+
+      <!--ons-tabbar swipeable position="top" id="cards_tabs">
+        <ons-tab page="cards_warrior.html" label="Warrior"  id="cards_warrior_tab" active></ons-tab>
+        <ons-tab page="cards_weapon.html" label="Weapon" id="cards_weapon_tab"></ons-tab>
+        <ons-tab page="cards_strategy.html" label="Strategy" id="cards_strategy_tab"></ons-tab>
+        <ons-tab page="cards_squad.html" label="Squad" id="cards_squad_tab"></ons-tab>
+        </ons-tab>
+      </ons-tabbar-->
+
+      
 
     <br />
     </ons-page>
   </template>
+
 
   <template id="arena.html">
     <ons-page id="arena" modifier="bg_arena">
@@ -301,7 +351,336 @@
       }, 100);
     } else if (page.id === 'main') {
       //page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
+      	
+    } else if (page.id === 'cards') {
+      //page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
+      	
+    } else if (page.id === 'cards_warrior') {
+      var warriorPage = document.querySelector('#cards_warrior'); //My ons-list element
+      var warriorCardGroups = cardPages.pages['Warrior'].groups;
+
+    warriorCardGroups.forEach(group => {
+      var groupElement = ons.createElement(`<ons-list modifier="inset ${group.color}">
+        <ons-list-header>${group.name}</ons-list-header>
+        </ons-list>`);
+        var cards=group.cards.forEach(card => {
+          var cardElement = ons.createElement(`<ons-list-item>
+            <div class="left">
+              <img class="list-item__thumbnail" src="./assets/images/game/${card.icon}">
+            </div>
+            <div class="center">
+              <span class="list-item__title"><b>Lv ${card.level}.</b> ${card.name}</span><span class="list-item__subtitle">${card.speed_step} Lb/h</span>
+            </div>
+            <div class="right">
+              <div class="list-item__label">${card.price} Lb</div>
+            </div>
+          </ons-list-item>`);
+          groupElement.appendChild(cardElement);
+        });
+
+        warriorPage.appendChild(document.createElement("br"));
+        //warriorPage.appendChild(groupElement);
+    });
+    //ons.compile(warriorPage);
+  
+
     }
+  });
+
+  /* 0:2 +2 2
+     1:4 +2 6
+     2:7 +3 13
+     3:12 +5 25
+     4:18 +6 43
+     5:25 +7 68
+     6:33 +8 101
+  */
+  var cardPages = {"pages": { 'Warrior':{ "name": "Warrior",
+          "groups": [
+            { "name": "Stats",
+              "color": "blue",
+              "cards": [
+                { "icon": "icon1.png",
+                  "name": "Strength",
+                  "level": "3",
+                  "time-update": "2024-11-26 12:03:22",
+                  "price": "2500",
+                  "speed-sum": "13",
+                  "speed_step": "12",
+                  "description": "Affects: carrying capacity, attack power, size of available weapons"
+                },
+                { "icon": "icon1.png",
+                  "name": "Agility",
+                  "level": "2",
+                   "time-update": "2024-11-26 12:03:22",
+                   "price": "1000",
+                   "speed-sum": "6",
+                   "speed_step": "7",
+                   "description": "Affects: chance to dodge an attack, chance to hit the target, degree of protection"
+                },
+                { "icon": "icon1.png",
+                  "name": "Intelligence",
+                  "level": "5",
+                   "time-update": "2024-11-26 12:03:22",
+                   "price": "10000",
+                   "speed-sum": "43",
+                   "speed_step": "25",
+                   "description": "Affects: chance to deal critical damage. resistance to critical damage"
+                },
+                { "icon": "icon1.png",
+                  "name": "Constitution",
+                  "level": "4",
+                   "time-update": "2024-11-26 12:03:22",
+                   "price": "5000",
+                   "speed-sum": "25",
+                   "speed_step": "18",
+                   "description": "Affects: amount of vitality, degree of protection."
+                }
+              ]
+            },
+            { "name": "Nutrition",
+              "color": "yellow",
+              "cards": [
+                { "icon": "icon1.png",
+                  "name": "Vegetables",
+                  "level": "3",
+                   "time-update": "2024-11-26 12:03:22",
+                   "price": "2500",
+                   "speed-sum": "13",
+                   "speed_step": "12",
+                   "description": "Affects: carrying capacity, attack power, size of available weapons"
+                },
+                { "icon": "icon1.png",
+                  "name": "Meat",
+                  "level": "2",
+                   "time-update": "2024-11-26 12:03:22",
+                   "price": "1000",
+                   "speed-sum": "6",
+                   "speed_step": "7",
+                   "description": "Affects: chance to dodge an attack, chance to hit the target, degree of protection"
+                },
+                { "icon": "icon1.png",
+                  "name": "Cereals",
+                  "level": "5",
+                   "time-update": "2024-11-26 12:03:22",
+                   "price": "10000",
+                   "speed-sum": "43",
+                   "speed_step": "25",
+                   "description": "Affects: chance to deal critical damage. resistance to critical damage"
+                },
+                { "icon": "icon1.png",
+                  "name": "Dessert",
+                  "level": "4",
+                   "time-update": "2024-11-26 12:03:22",
+                   "price": "5000",
+                   "speed-sum": "25",
+                   "speed_step": "18",
+                   "description": "Affects: amount of vitality, degree of protection."
+                },
+                { "icon": "icon1.png",
+                  "name": "Seafood",
+                  "level": "1",
+                   "time-update": "2024-11-26 12:03:22",
+                   "price": "500",
+                   "speed-sum": "2",
+                   "speed_step": "2",
+                   "description": "Affects: amount of vitality, degree of protection."
+                },
+                { "icon": "icon1.png",
+                  "name": "Delicacies",
+                  "level": "0",
+                   "time-update": "2024-11-26 12:03:22",
+                   "price": "100",
+                   "speed-sum": "0",
+                   "speed_step": "2",
+                   "description": "Affects: amount of vitality, degree of protection."
+                }
+              ]
+            },
+            { "name": "Clothes",
+              "color": "green",
+              "cards": [
+                { "icon": "icon1.png",
+                  "name": "Pants",
+                  "level": "3",
+                   "time-update": "2024-11-26 12:03:22",
+                   "price": "2500",
+                   "speed-sum": "13",
+                   "speed_step": "12",
+                   "description": "Affects: carrying capacity, attack power, size of available weapons"
+                },
+                { "icon": "icon1.png",
+                  "name": "Pants",
+                  "level": "2",
+                   "time-update": "2024-11-26 12:03:22",
+                   "price": "1000",
+                   "speed-sum": "6",
+                   "speed_step": "7",
+                   "description": "Affects: chance to dodge an attack, chance to hit the target, degree of protection"
+                },
+                { "icon": "icon1.png",
+                  "name": "Shoes",
+                  "level": "5",
+                   "time-update": "2024-11-26 12:03:22",
+                   "price": "10000",
+                   "speed-sum": "43",
+                   "speed_step": "25",
+                   "description": "Affects: chance to deal critical damage. resistance to critical damage"
+                },
+                { "icon": "icon1.png",
+                  "name": "Shirt",
+                  "level": "4",
+                   "time-update": "2024-11-26 12:03:22",
+                   "price": "5000",
+                   "speed-sum": "25",
+                   "speed_step": "18",
+                   "description": "Affects: amount of vitality, degree of protection."
+                },
+                { "icon": "icon1.png",
+                  "name": "Jacket",
+                  "level": "1",
+                   "time-update": "2024-11-26 12:03:22",
+                   "price": "500",
+                   "speed-sum": "2",
+                   "speed_step": "2",
+                   "description": "Affects: amount of vitality, degree of protection."
+                },
+                { "icon": "icon1.png",
+                  "name": "Gloves",
+                  "level": "0",
+                   "time-update": "2024-11-26 12:03:22",
+                   "price": "100",
+                   "speed-sum": "0",
+                   "speed_step": "2",
+                   "description": "Affects: amount of vitality, degree of protection."
+                },
+                { "icon": "icon1.png",
+                  "name": "Hat",
+                  "level": "0",
+                   "time-update": "2024-11-26 12:03:22",
+                   "price": "100",
+                   "speed-sum": "0",
+                   "speed_step": "2",
+                   "description": "Affects: amount of vitality, degree of protection."
+                }
+              ]
+            },
+            { "name": "Accessories",
+              "color": "blue",
+              "cards": [
+                { "icon": "icon1.png",
+                  "name": "Ring",
+                  "level": "3",
+                   "time-update": "2024-11-26 12:03:22",
+                   "price": "2500",
+                   "speed-sum": "13",
+                   "speed_step": "12",
+                   "description": "Affects: carrying capacity, attack power, size of available weapons"
+                }
+              ]
+            }
+          ]
+        },
+		"Weapon": { "name": "Weapon",
+          "groups": [
+		    { "name": "Accessories",
+              "color": "blue",
+              "cards": [
+                { "icon": "icon1.png",
+                  "name": "Ring",
+                  "level": "3",
+                   "time-update": "2024-11-26 12:03:22",
+                   "price": "2500",
+                   "speed-sum": "13",
+                   "speed_step": "12",
+                   "description": "Affects: carrying capacity, attack power, size of available weapons"
+                }
+              ]
+            },
+			{ "name": "Accessories",
+              "color": "blue",
+              "cards": [
+                { "icon": "icon1.png",
+                  "name": "Ring",
+                  "level": "3",
+                   "time-update": "2024-11-26 12:03:22",
+                   "price": "2500",
+                   "speed-sum": "13",
+                   "speed_step": "12",
+                   "description": "Affects: carrying capacity, attack power, size of available weapons"
+                }
+              ]
+            }
+		  ]
+		},
+		"Strategy":{ "name": "Strategy",
+          "groups": [
+		    { "name": "Accessories",
+              "color": "blue",
+              "cards": [
+                { "icon": "icon1.png",
+                  "name": "Ring",
+                  "level": "3",
+                   "time-update": "2024-11-26 12:03:22",
+                   "price": "2500",
+                   "speed-sum": "13",
+                   "speed_step": "12",
+                   "description": "Affects: carrying capacity, attack power, size of available weapons"
+                }
+              ]
+            },
+			{ "name": "Accessories",
+              "color": "blue",
+              "cards": [
+                { "icon": "icon1.png",
+                  "name": "Ring",
+                  "level": "3",
+                   "time-update": "2024-11-26 12:03:22",
+                   "price": "2500",
+                   "speed-sum": "13",
+                   "speed_step": "12",
+                   "description": "Affects: carrying capacity, attack power, size of available weapons"
+                }
+              ]
+            }
+		  ]
+		},
+		"Squad":{ "name": "Squad",
+          "groups": [
+		    { "name": "Accessories",
+              "color": "blue",
+              "cards": [
+                { "icon": "icon1.png",
+                  "name": "Ring",
+                  "level": "3",
+                   "time-update": "2024-11-26 12:03:22",
+                   "price": "2500",
+                   "speed-sum": "13",
+                   "speed_step": "12",
+                   "description": "Affects: carrying capacity, attack power, size of available weapons"
+                }
+              ]
+            },
+			{ "name": "Accessories",
+              "color": "blue",
+              "cards": [
+                { "icon": "icon1.png",
+                  "name": "Ring",
+                  "level": "3",
+                   "time-update": "2024-11-26 12:03:22",
+                   "price": "2500",
+                   "speed-sum": "13",
+                   "speed_step": "12",
+                   "description": "Affects: carrying capacity, attack power, size of available weapons"
+                }
+              ]
+            }
+		  ]
+		}
+      }
+  };
+
+ons.ready(function() {
   });
 
 </script>
